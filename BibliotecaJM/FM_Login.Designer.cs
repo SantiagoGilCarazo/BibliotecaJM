@@ -116,6 +116,7 @@
             this.password_usuTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuariosBindingSource, "password_usu", true));
             this.password_usuTextBox.Location = new System.Drawing.Point(135, 66);
             this.password_usuTextBox.Name = "password_usuTextBox";
+            this.password_usuTextBox.PasswordChar = '*';
             this.password_usuTextBox.Size = new System.Drawing.Size(114, 20);
             this.password_usuTextBox.TabIndex = 7;
             // 
