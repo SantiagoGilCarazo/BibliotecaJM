@@ -1065,7 +1065,7 @@ SELECT id_lec, nombre_lec, domicilio_lec, provincia_lec, email_lec, fecha_nacimi
             this._commandCollection[2].CommandText = "SELECT id_lec, nombre_lec, domicilio_lec,  fecha_penalizacion_lec FROM dbo.lector" +
                 "es WHERE nombre_lec LIKE \'%\' + @nombre + \'%\'";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.NChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "nombre_lec", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "nombre_lec", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

@@ -19,7 +19,7 @@ namespace BibliotecaJM
 
         private void bAceptar_Click(object sender, EventArgs e)
         {
-            string tipo = "a";
+            string tipo = "";
             string nombre = nombre_usuTextBox.Text;
             string contraseña = password_usuTextBox.Text;
             int posicion = 0;
@@ -47,5 +47,7 @@ namespace BibliotecaJM
         {
             this.Close();
         }
+
+       
     }
 }
