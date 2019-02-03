@@ -77,6 +77,10 @@
             this.tableAdapterManager2 = new BibliotecaJM.DS_LibrosTableAdapters.TableAdapterManager();
             this.lectoresTableAdapter = new BibliotecaJM.DS_LectoresTableAdapters.lectoresTableAdapter();
             this.tableAdapterManager = new BibliotecaJM.DS_LectoresTableAdapters.TableAdapterManager();
+            this.dS_Configuracion = new BibliotecaJM.DS_Configuracion();
+            this.configuracionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.configuracionTableAdapter = new BibliotecaJM.DS_ConfiguracionTableAdapters.configuracionTableAdapter();
+            this.tableAdapterManager3 = new BibliotecaJM.DS_ConfiguracionTableAdapters.TableAdapterManager();
             id_lecLabel = new System.Windows.Forms.Label();
             nombre_lecLabel = new System.Windows.Forms.Label();
             domicilio_lecLabel = new System.Windows.Forms.Label();
@@ -91,6 +95,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dS_LibrosPrestados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.librosPrestadosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.librosPrestadosDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS_Configuracion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.configuracionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // id_lecLabel
@@ -509,6 +515,26 @@
             this.tableAdapterManager.lectoresTableAdapter = this.lectoresTableAdapter;
             this.tableAdapterManager.UpdateOrder = BibliotecaJM.DS_LectoresTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // dS_Configuracion
+            // 
+            this.dS_Configuracion.DataSetName = "DS_Configuracion";
+            this.dS_Configuracion.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // configuracionBindingSource
+            // 
+            this.configuracionBindingSource.DataMember = "configuracion";
+            this.configuracionBindingSource.DataSource = this.dS_Configuracion;
+            // 
+            // configuracionTableAdapter
+            // 
+            this.configuracionTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager3
+            // 
+            this.tableAdapterManager3.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager3.configuracionTableAdapter = this.configuracionTableAdapter;
+            this.tableAdapterManager3.UpdateOrder = BibliotecaJM.DS_ConfiguracionTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // FM_Prestamos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -530,6 +556,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dS_LibrosPrestados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.librosPrestadosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.librosPrestadosDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS_Configuracion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.configuracionBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -580,5 +608,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private DS_Configuracion dS_Configuracion;
+        private System.Windows.Forms.BindingSource configuracionBindingSource;
+        private DS_ConfiguracionTableAdapters.configuracionTableAdapter configuracionTableAdapter;
+        private DS_ConfiguracionTableAdapters.TableAdapterManager tableAdapterManager3;
     }
 }
