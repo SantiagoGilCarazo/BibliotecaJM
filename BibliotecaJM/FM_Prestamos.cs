@@ -71,14 +71,18 @@ namespace BibliotecaJM
         {            
             int posicionLibros = librosBindingSource.Position;
             int idLector = int.Parse(id_lecLabel1.Text);
+            DateTime fechaActual = DateTime.Today;
+            string fecha = fechaActual.ToShortDateString();
             
-            if (dS_Libros.libros[posicionLibros].prestado_sn_lib.ToLower().Equals("n") && 
+            if (dS_Libros.libros[posicionLibros].prestado_sn_lib.Contains("N") && 
                 librosPrestadosDataGridView.RowCount<=5)
             {
-                MessageBox.Show(librosPrestadosDataGridView.RowCount.ToString());
+                //if (dS_Lectores.lectores[idLector].fecha_penalizacion_lec.ToShortDateString().CompareTo(fecha)<1)
+                MessageBox.Show(dS_Lectores.lectores[idLector].fecha_penalizacion_lec.ToShortDateString().CompareTo(fecha).ToString()); 
             }
             else
                 MessageBox.Show("El libro ya está prestado o la persona tiene 5 o más libros prestados.");
+            
         }
     }
 }

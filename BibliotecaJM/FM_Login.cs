@@ -15,6 +15,8 @@ namespace BibliotecaJM
         public FM_Login()
         {
             InitializeComponent();
+            nombre_usuTextBox.Focus();
+
         }
 
         private void bAceptar_Click(object sender, EventArgs e)
