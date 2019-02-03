@@ -56,10 +56,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_Historico_prestamos.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DS_Lectores.cs">
+      <DependentUpon>DS_Lectores.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_Lectores.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_Lectores.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS_Libros.cs">
+      <DependentUpon>DS_Libros.xsd</DependentUpon>
     </Compile>
     <Compile Include="DS_Libros.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -168,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FM_Modelo.resx">
       <DependentUpon>FM_Modelo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FM_Prestamos.resx">
+      <DependentUpon>FM_Prestamos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FM_Principal.resx">
       <DependentUpon>FM_Principal.cs</DependentUpon>
