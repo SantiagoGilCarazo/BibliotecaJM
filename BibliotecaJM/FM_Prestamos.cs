@@ -11,7 +11,7 @@ namespace BibliotecaJM
     public partial class FM_Prestamos : BibliotecaJM.FM_Modelo
     {
         private UsuarioActual usuarioActual;
-
+        public string Prestado { get; set; }
         public FM_Prestamos()
         {
             InitializeComponent();
@@ -27,6 +27,8 @@ namespace BibliotecaJM
 
         private void FM_Prestamos_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'dS_Prestamos.prestamos' Puede moverla o quitarla según sea necesario.
+            this.prestamosTableAdapter.Fill(this.dS_Prestamos.prestamos);
             // TODO: esta línea de código carga datos en la tabla 'dS_Configuracion.configuracion' Puede moverla o quitarla según sea necesario.
             this.configuracionTableAdapter.Fill(this.dS_Configuracion.configuracion);
             // TODO: esta línea de código carga datos en la tabla 'dS_Libros.libros' Puede moverla o quitarla según sea necesario.
@@ -72,37 +74,51 @@ namespace BibliotecaJM
         private void bPrestamo_Click(object sender, EventArgs e)
         {
             int posicionLibros = librosBindingSource.Position;
-            int idLector = int.Parse(id_lecLabel1.Text);
+            //int idLector = int.Parse(id_lecLabel1.Text);
             DateTime fechaActual = DateTime.Today;
             //DateTime? fechaPenalizacion = dS_Lectores.lectores[0].fecha_penalizacion_lec;
             string fecha = fechaActual.ToShortDateString();
             int dias = dS_Configuracion.configuracion[0].dias_prestamo_cnf;
+            Prestado = dS_Libros.libros[posicionLibros].prestado_sn_lib;
+            
 
-
-            if (dS_Libros.libros[posicionLibros].prestado_sn_lib.Contains("N") &&
-                librosPrestadosDataGridView.RowCount <= 5)
+            if (Prestado.Contains("N") && librosPrestadosDataGridView.RowCount <= 5)
             {
-                if (dS_Lectores.lectores[0].fecha_penalizacion_lec < fechaActual ||
-                    dS_Lectores.lectores[0].Isfecha_penalizacion_lecNull()==true)
+                if (dS_Lectores.lectores[0].Isfecha_penalizacion_lecNull() || dS_Lectores.lectores[0].fecha_penalizacion_lec < DateTime.Today)
                 {
-                    dS_Lectores.lectores[0].Isfecha_penalizacion_lecNull().Equals(true);
-                    dS_Libros.libros[posicionLibros].prestado_sn_lib = "S";
-                    librosPrestadosBindingSource.AddNew();
-                    dS_LibrosPrestados.LibrosPrestados[0].titulo_lib =
-                        dS_Libros.libros[posicionLibros].titulo_lib;
-                    dS_LibrosPrestados.LibrosPrestados[0].fecha_presta_pre = fechaActual;
-                    dS_LibrosPrestados.LibrosPrestados[0].fecha_devol_pre =
-                        fechaActual.AddDays(dias);
-                    librosPrestadosBindingSource.EndEdit();
-                    this.librosPrestadosTableAdapter.Adapter.Update(dS_LibrosPrestados.LibrosPrestados);
+
+                    prestamosBindingSource.AddNew();
+                    if (dS_Lectores.lectores[0].id_lec!=0)
+                    {
+                        dS_Prestamos.prestamos[0].id_lec_pre = dS_Lectores.lectores[0].id_lec;
+                    }
+                    
+                    dS_Prestamos.prestamos[0].id_lib_pre = dS_Libros.libros[posicionLibros].id_lib;
+                    dS_Prestamos.prestamos[0].fecha_presta_pre = DateTime.Today;
+                    dS_Prestamos.prestamos[0].fecha_devol_pre = DateTime.Today.AddDays(dS_Configuracion.configuracion[0].dias_prestamo_cnf);
+                    prestamosBindingSource.EndEdit();
+                    prestamosTableAdapter.Update(dS_Prestamos.prestamos);
+                    dS_Lectores.lectores[0].Isfecha_penalizacion_lecNull().Equals(null);
+                    Prestado = "S";
+                    //prestamosBindingSource.Insert(0, dS_Lectores.lectores[0].id_lec);                        
+                    //prestamosBindingSource.Insert(1, dS_Libros.libros[posicionLibros].id_lib);
+                    //prestamosBindingSource.Insert(2, DateTime.Today);
+                    //prestamosBindingSource.Insert(3, DateTime.Today.AddDays(dS_Configuracion.configuracion[0].dias_prestamo_cnf));
+                    //prestamosBindingSource.EndEdit();
+                    //librosTableAdapter.Update(dS_Libros.libros);
+                    //dS_Lectores.lectores[0].Isfecha_penalizacion_lecNull().Equals(null);
+                    //Prestado = "S";
+
+
 
                 }
                 else
                     MessageBox.Show("El usuario está penalizado y no puede realizar préstamos.");
             }
             else
-                MessageBox.Show("El libro ya está prestado o la persona tiene 5 o más libros prestados.");
-
+            {
+                MessageBox.Show("No se puede prestar el libro porque ya está prestado o la persona tiene 5 libros prestados.");
+            }
         }
     }
 }

@@ -81,6 +81,10 @@
             this.configuracionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.configuracionTableAdapter = new BibliotecaJM.DS_ConfiguracionTableAdapters.configuracionTableAdapter();
             this.tableAdapterManager3 = new BibliotecaJM.DS_ConfiguracionTableAdapters.TableAdapterManager();
+            this.dS_Prestamos = new BibliotecaJM.DS_Prestamos();
+            this.prestamosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.prestamosTableAdapter = new BibliotecaJM.DS_PrestamosTableAdapters.prestamosTableAdapter();
+            this.tableAdapterManager4 = new BibliotecaJM.DS_PrestamosTableAdapters.TableAdapterManager();
             id_lecLabel = new System.Windows.Forms.Label();
             nombre_lecLabel = new System.Windows.Forms.Label();
             domicilio_lecLabel = new System.Windows.Forms.Label();
@@ -97,6 +101,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.librosPrestadosDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Configuracion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.configuracionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS_Prestamos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prestamosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // id_lecLabel
@@ -535,6 +541,26 @@
             this.tableAdapterManager3.configuracionTableAdapter = this.configuracionTableAdapter;
             this.tableAdapterManager3.UpdateOrder = BibliotecaJM.DS_ConfiguracionTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // dS_Prestamos
+            // 
+            this.dS_Prestamos.DataSetName = "DS_Prestamos";
+            this.dS_Prestamos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // prestamosBindingSource
+            // 
+            this.prestamosBindingSource.DataMember = "prestamos";
+            this.prestamosBindingSource.DataSource = this.dS_Prestamos;
+            // 
+            // prestamosTableAdapter
+            // 
+            this.prestamosTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager4
+            // 
+            this.tableAdapterManager4.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager4.prestamosTableAdapter = this.prestamosTableAdapter;
+            this.tableAdapterManager4.UpdateOrder = BibliotecaJM.DS_PrestamosTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // FM_Prestamos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -558,6 +584,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.librosPrestadosDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Configuracion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.configuracionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS_Prestamos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prestamosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -612,5 +640,9 @@
         private System.Windows.Forms.BindingSource configuracionBindingSource;
         private DS_ConfiguracionTableAdapters.configuracionTableAdapter configuracionTableAdapter;
         private DS_ConfiguracionTableAdapters.TableAdapterManager tableAdapterManager3;
+        private DS_Prestamos dS_Prestamos;
+        private System.Windows.Forms.BindingSource prestamosBindingSource;
+        private DS_PrestamosTableAdapters.prestamosTableAdapter prestamosTableAdapter;
+        private DS_PrestamosTableAdapters.TableAdapterManager tableAdapterManager4;
     }
 }
