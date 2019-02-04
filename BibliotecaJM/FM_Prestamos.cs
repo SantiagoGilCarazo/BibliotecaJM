@@ -74,7 +74,7 @@ namespace BibliotecaJM
             int posicionLibros = librosBindingSource.Position;
             int idLector = int.Parse(id_lecLabel1.Text);
             DateTime fechaActual = DateTime.Today;
-            DateTime? fechaPenalizacion = dS_Lectores.lectores[idLector].fecha_penalizacion_lec;
+            //DateTime? fechaPenalizacion = dS_Lectores.lectores[0].fecha_penalizacion_lec;
             string fecha = fechaActual.ToShortDateString();
             int dias = dS_Configuracion.configuracion[0].dias_prestamo_cnf;
 
@@ -82,16 +82,16 @@ namespace BibliotecaJM
             if (dS_Libros.libros[posicionLibros].prestado_sn_lib.Contains("N") &&
                 librosPrestadosDataGridView.RowCount <= 5)
             {
-                if (DateTime.Compare(fechaPenalizacion.Value, fechaActual) > 0 ||
-                    fechaPenalizacion.Value == null)
+                if (dS_Lectores.lectores[0].fecha_penalizacion_lec < fechaActual ||
+                    dS_Lectores.lectores[0].Isfecha_penalizacion_lecNull()==true)
                 {
-                    fechaPenalizacion = null;
+                    dS_Lectores.lectores[0].Isfecha_penalizacion_lecNull().Equals(true);
                     dS_Libros.libros[posicionLibros].prestado_sn_lib = "S";
                     librosPrestadosBindingSource.AddNew();
-                    dS_LibrosPrestados.LibrosPrestados[posicionLibros].titulo_lib =
+                    dS_LibrosPrestados.LibrosPrestados[0].titulo_lib =
                         dS_Libros.libros[posicionLibros].titulo_lib;
-                    dS_LibrosPrestados.LibrosPrestados[posicionLibros].fecha_presta_pre = fechaActual;
-                    dS_LibrosPrestados.LibrosPrestados[posicionLibros].fecha_devol_pre =
+                    dS_LibrosPrestados.LibrosPrestados[0].fecha_presta_pre = fechaActual;
+                    dS_LibrosPrestados.LibrosPrestados[0].fecha_devol_pre =
                         fechaActual.AddDays(dias);
                     librosPrestadosBindingSource.EndEdit();
                     this.librosPrestadosTableAdapter.Adapter.Update(dS_LibrosPrestados.LibrosPrestados);
