@@ -569,7 +569,6 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FM_Prestamos";
-            this.Load += new System.EventHandler(this.FM_Prestamos_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lectoresBindingSource)).EndInit();

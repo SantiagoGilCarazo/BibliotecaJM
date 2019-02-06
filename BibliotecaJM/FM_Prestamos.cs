@@ -23,21 +23,6 @@ namespace BibliotecaJM
             InitializeComponent();
         }
 
-
-
-        private void FM_Prestamos_Load(object sender, EventArgs e)
-        {
-            // TODO: esta línea de código carga datos en la tabla 'dS_Prestamos.prestamos' Puede moverla o quitarla según sea necesario.
-            this.prestamosTableAdapter.Fill(this.dS_Prestamos.prestamos);
-            // TODO: esta línea de código carga datos en la tabla 'dS_Configuracion.configuracion' Puede moverla o quitarla según sea necesario.
-            this.configuracionTableAdapter.Fill(this.dS_Configuracion.configuracion);
-            // TODO: esta línea de código carga datos en la tabla 'dS_Libros.libros' Puede moverla o quitarla según sea necesario.
-            this.librosTableAdapter.Fill(this.dS_Libros.libros);
-
-
-
-        }
-
         private void bBuscarId_Click(object sender, EventArgs e)
         {
             int IdLec = int.Parse(tbIDLector.Text);
@@ -100,14 +85,8 @@ namespace BibliotecaJM
                     prestamosTableAdapter.Update(dS_Prestamos.prestamos);
                     dS_Lectores.lectores[0].Isfecha_penalizacion_lecNull().Equals(null);
                     Prestado = "S";
-                    //prestamosBindingSource.Insert(0, dS_Lectores.lectores[0].id_lec);                        
-                    //prestamosBindingSource.Insert(1, dS_Libros.libros[posicionLibros].id_lib);
-                    //prestamosBindingSource.Insert(2, DateTime.Today);
-                    //prestamosBindingSource.Insert(3, DateTime.Today.AddDays(dS_Configuracion.configuracion[0].dias_prestamo_cnf));
-                    //prestamosBindingSource.EndEdit();
-                    //librosTableAdapter.Update(dS_Libros.libros);
-                    //dS_Lectores.lectores[0].Isfecha_penalizacion_lecNull().Equals(null);
-                    //Prestado = "S";
+                    
+
 
 
 
