@@ -29,7 +29,7 @@ namespace BibliotecaJM
             {
                 int IdLec = int.Parse(tbIDLector.Text);
                 this.lectoresTableAdapter.FillById(this.dS_Lectores.lectores, IdLec);
-                this.librosPrestadosTableAdapter.FillById(this.dS_LibrosPrestados.LibrosPrestados, IdLec);
+                this.librosPrestadosTableAdapter.FillByIdLector(this.dS_LibrosPrestados.LibrosPrestados, IdLec);
             }
             catch (Exception)
             {
@@ -133,7 +133,7 @@ namespace BibliotecaJM
                         //lectoresTableAdapter.Update(dS_Lectores.lectores);
                         //lectoresTableAdapter.FillById(dS_Lectores.lectores,int.Parse(tbIDLector.Text));
 
-                        librosPrestadosTableAdapter.FillById(dS_LibrosPrestados.LibrosPrestados, int.Parse(tbIDLector.Text));
+                        librosPrestadosTableAdapter.FillByIdLector(dS_LibrosPrestados.LibrosPrestados, int.Parse(tbIDLector.Text));
 
                         MessageBox.Show("El préstamo se ha realizado correctamente.");
 
