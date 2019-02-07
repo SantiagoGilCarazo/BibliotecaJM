@@ -135,6 +135,7 @@ namespace BibliotecaJM
 
                         librosPrestadosTableAdapter.FillById(dS_LibrosPrestados.LibrosPrestados, int.Parse(tbIDLector.Text));
 
+                        MessageBox.Show("El préstamo se ha realizado correctamente.");
 
                     }
                     else

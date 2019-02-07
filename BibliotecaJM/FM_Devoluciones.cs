@@ -30,15 +30,35 @@ namespace BibliotecaJM
 
         private void bBuscarLibro_Click(object sender, EventArgs e)
         {
-            int idLibro = int.Parse(tbLibro.Text);
-            this.librosTableAdapter.FillById(dS_Libros.libros, idLibro);
+            try
+            {
+                int idLibro = int.Parse(tbLibro.Text);
+                this.librosPrestadosTableAdapter.FillByIdLibro(dS_LibrosPrestados.LibrosPrestados, idLibro);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Introduce un id válido.");
+                tbLibro.Focus();
+            }
+            
         }
 
         private void bBuscarLector_Click(object sender, EventArgs e)
         {
-            int idLector = int.Parse(tbLector.Text);
-            this.lectoresTableAdapter.FillById(dS_Lectores.lectores, idLector);
-            this.librosPrestadosTableAdapter.FillById(dS_LibrosPrestados.LibrosPrestados,idLector);
+            try
+            {
+                int idLector = int.Parse(tbLector.Text);
+                this.lectoresTableAdapter.FillById(dS_Lectores.lectores, idLector);
+                this.librosPrestadosTableAdapter.FillById(dS_LibrosPrestados.LibrosPrestados, idLector);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Introduce un id válido.");
+                tbLector.Focus();
+            }
+            
         }
 
         private void FM_Devoluciones_Load(object sender, EventArgs e)
@@ -46,6 +66,14 @@ namespace BibliotecaJM
             // TODO: esta línea de código carga datos en la tabla 'dS_Prestamos.prestamos' Puede moverla o quitarla según sea necesario.
             this.prestamosTableAdapter.Fill(this.dS_Prestamos.prestamos);
 
+        }
+
+        private void librosPrestadosDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex==4)
+            {
+                MessageBox.Show("Has pulsado el botón.");
+            }
         }
     }
 }

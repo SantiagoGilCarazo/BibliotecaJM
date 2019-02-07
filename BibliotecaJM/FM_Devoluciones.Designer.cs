@@ -60,19 +60,20 @@
             this.lectoresTableAdapter = new BibliotecaJM.DS_LectoresTableAdapters.lectoresTableAdapter();
             this.tableAdapterManager1 = new BibliotecaJM.DS_LectoresTableAdapters.TableAdapterManager();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dS_LibrosPrestados = new BibliotecaJM.DS_LibrosPrestados();
+            this.librosPrestadosDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.librosPrestadosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dS_LibrosPrestados = new BibliotecaJM.DS_LibrosPrestados();
             this.librosPrestadosTableAdapter = new BibliotecaJM.DS_LibrosPrestadosTableAdapters.LibrosPrestadosTableAdapter();
             this.tableAdapterManager2 = new BibliotecaJM.DS_LibrosPrestadosTableAdapters.TableAdapterManager();
             this.dS_Prestamos = new BibliotecaJM.DS_Prestamos();
             this.prestamosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.prestamosTableAdapter = new BibliotecaJM.DS_PrestamosTableAdapters.prestamosTableAdapter();
             this.tableAdapterManager3 = new BibliotecaJM.DS_PrestamosTableAdapters.TableAdapterManager();
-            this.librosPrestadosDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             id_libLabel = new System.Windows.Forms.Label();
             id_libLabel1 = new System.Windows.Forms.Label();
             titulo_libLabel = new System.Windows.Forms.Label();
@@ -89,11 +90,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.lectoresBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Lectores)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_LibrosPrestados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.librosPrestadosDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.librosPrestadosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS_LibrosPrestados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Prestamos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prestamosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.librosPrestadosDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // id_libLabel
@@ -137,45 +138,45 @@
             id_lecLabel.AutoSize = true;
             id_lecLabel.Location = new System.Drawing.Point(23, 68);
             id_lecLabel.Name = "id_lecLabel";
-            id_lecLabel.Size = new System.Drawing.Size(35, 13);
+            id_lecLabel.Size = new System.Drawing.Size(48, 13);
             id_lecLabel.TabIndex = 0;
-            id_lecLabel.Text = "id lec:";
+            id_lecLabel.Text = "Id lector:";
             // 
             // nombre_lecLabel
             // 
             nombre_lecLabel.AutoSize = true;
             nombre_lecLabel.Location = new System.Drawing.Point(23, 91);
             nombre_lecLabel.Name = "nombre_lecLabel";
-            nombre_lecLabel.Size = new System.Drawing.Size(62, 13);
+            nombre_lecLabel.Size = new System.Drawing.Size(47, 13);
             nombre_lecLabel.TabIndex = 2;
-            nombre_lecLabel.Text = "nombre lec:";
+            nombre_lecLabel.Text = "Nombre:";
             // 
             // domicilio_lecLabel
             // 
             domicilio_lecLabel.AutoSize = true;
             domicilio_lecLabel.Location = new System.Drawing.Point(23, 114);
             domicilio_lecLabel.Name = "domicilio_lecLabel";
-            domicilio_lecLabel.Size = new System.Drawing.Size(67, 13);
+            domicilio_lecLabel.Size = new System.Drawing.Size(52, 13);
             domicilio_lecLabel.TabIndex = 4;
-            domicilio_lecLabel.Text = "domicilio lec:";
+            domicilio_lecLabel.Text = "Domicilio:";
             // 
             // fecha_penalizacion_lecLabel
             // 
             fecha_penalizacion_lecLabel.AutoSize = true;
             fecha_penalizacion_lecLabel.Location = new System.Drawing.Point(23, 150);
             fecha_penalizacion_lecLabel.Name = "fecha_penalizacion_lecLabel";
-            fecha_penalizacion_lecLabel.Size = new System.Drawing.Size(116, 13);
+            fecha_penalizacion_lecLabel.Size = new System.Drawing.Size(117, 13);
             fecha_penalizacion_lecLabel.TabIndex = 12;
-            fecha_penalizacion_lecLabel.Text = "fecha penalizacion lec:";
+            fecha_penalizacion_lecLabel.Text = "Fecha de penalización:";
             // 
             // id_lecLabel2
             // 
             id_lecLabel2.AutoSize = true;
             id_lecLabel2.Location = new System.Drawing.Point(26, 37);
             id_lecLabel2.Name = "id_lecLabel2";
-            id_lecLabel2.Size = new System.Drawing.Size(35, 13);
+            id_lecLabel2.Size = new System.Drawing.Size(48, 13);
             id_lecLabel2.TabIndex = 13;
-            id_lecLabel2.Text = "id lec:";
+            id_lecLabel2.Text = "Id lector:";
             // 
             // groupBox1
             // 
@@ -212,7 +213,6 @@
             this.id_libLabel2.Name = "id_libLabel2";
             this.id_libLabel2.Size = new System.Drawing.Size(100, 23);
             this.id_libLabel2.TabIndex = 3;
-            this.id_libLabel2.Text = "label1";
             // 
             // librosBindingSource
             // 
@@ -231,7 +231,6 @@
             this.titulo_libLabel1.Name = "titulo_libLabel1";
             this.titulo_libLabel1.Size = new System.Drawing.Size(100, 23);
             this.titulo_libLabel1.TabIndex = 5;
-            this.titulo_libLabel1.Text = "label1";
             // 
             // autor_libLabel1
             // 
@@ -240,7 +239,6 @@
             this.autor_libLabel1.Name = "autor_libLabel1";
             this.autor_libLabel1.Size = new System.Drawing.Size(100, 23);
             this.autor_libLabel1.TabIndex = 7;
-            this.autor_libLabel1.Text = "label1";
             // 
             // tbLibro
             // 
@@ -272,7 +270,7 @@
             // 
             // bBuscarLector
             // 
-            this.bBuscarLector.Location = new System.Drawing.Point(395, 34);
+            this.bBuscarLector.Location = new System.Drawing.Point(395, 32);
             this.bBuscarLector.Name = "bBuscarLector";
             this.bBuscarLector.Size = new System.Drawing.Size(75, 23);
             this.bBuscarLector.TabIndex = 15;
@@ -283,7 +281,7 @@
             // tbLector
             // 
             this.tbLector.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lectoresBindingSource, "id_lec", true));
-            this.tbLector.Location = new System.Drawing.Point(67, 34);
+            this.tbLector.Location = new System.Drawing.Point(89, 33);
             this.tbLector.Name = "tbLector";
             this.tbLector.Size = new System.Drawing.Size(291, 20);
             this.tbLector.TabIndex = 14;
@@ -305,7 +303,6 @@
             this.id_lecLabel1.Name = "id_lecLabel1";
             this.id_lecLabel1.Size = new System.Drawing.Size(200, 23);
             this.id_lecLabel1.TabIndex = 1;
-            this.id_lecLabel1.Text = "label1";
             // 
             // nombre_lecLabel1
             // 
@@ -314,7 +311,6 @@
             this.nombre_lecLabel1.Name = "nombre_lecLabel1";
             this.nombre_lecLabel1.Size = new System.Drawing.Size(200, 23);
             this.nombre_lecLabel1.TabIndex = 3;
-            this.nombre_lecLabel1.Text = "label1";
             // 
             // domicilio_lecLabel1
             // 
@@ -323,7 +319,6 @@
             this.domicilio_lecLabel1.Name = "domicilio_lecLabel1";
             this.domicilio_lecLabel1.Size = new System.Drawing.Size(200, 23);
             this.domicilio_lecLabel1.TabIndex = 5;
-            this.domicilio_lecLabel1.Text = "label1";
             // 
             // fecha_penalizacion_lecLabel1
             // 
@@ -332,7 +327,6 @@
             this.fecha_penalizacion_lecLabel1.Name = "fecha_penalizacion_lecLabel1";
             this.fecha_penalizacion_lecLabel1.Size = new System.Drawing.Size(200, 23);
             this.fecha_penalizacion_lecLabel1.TabIndex = 13;
-            this.fecha_penalizacion_lecLabel1.Text = "label1";
             // 
             // librosTableAdapter
             // 
@@ -364,15 +358,78 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Libros prestados";
             // 
-            // dS_LibrosPrestados
+            // librosPrestadosDataGridView
             // 
-            this.dS_LibrosPrestados.DataSetName = "DS_LibrosPrestados";
-            this.dS_LibrosPrestados.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.librosPrestadosDataGridView.AllowUserToAddRows = false;
+            this.librosPrestadosDataGridView.AllowUserToDeleteRows = false;
+            this.librosPrestadosDataGridView.AllowUserToResizeColumns = false;
+            this.librosPrestadosDataGridView.AllowUserToResizeRows = false;
+            this.librosPrestadosDataGridView.AutoGenerateColumns = false;
+            this.librosPrestadosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.librosPrestadosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.Column1});
+            this.librosPrestadosDataGridView.DataSource = this.librosPrestadosBindingSource;
+            this.librosPrestadosDataGridView.Location = new System.Drawing.Point(6, 19);
+            this.librosPrestadosDataGridView.Name = "librosPrestadosDataGridView";
+            this.librosPrestadosDataGridView.ReadOnly = true;
+            this.librosPrestadosDataGridView.RowHeadersVisible = false;
+            this.librosPrestadosDataGridView.Size = new System.Drawing.Size(1042, 404);
+            this.librosPrestadosDataGridView.TabIndex = 0;
+            this.librosPrestadosDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.librosPrestadosDataGridView_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "id_lib";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "titulo_lib";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Titulo";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "fecha_presta_pre";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Fecha de préstamo";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "fecha_devol_pre";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Fecha de devolución";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Text = "Realizar devolución";
+            this.Column1.UseColumnTextForButtonValue = true;
+            this.Column1.Width = 150;
             // 
             // librosPrestadosBindingSource
             // 
             this.librosPrestadosBindingSource.DataMember = "LibrosPrestados";
             this.librosPrestadosBindingSource.DataSource = this.dS_LibrosPrestados;
+            // 
+            // dS_LibrosPrestados
+            // 
+            this.dS_LibrosPrestados.DataSetName = "DS_LibrosPrestados";
+            this.dS_LibrosPrestados.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // librosPrestadosTableAdapter
             // 
@@ -404,45 +461,6 @@
             this.tableAdapterManager3.prestamosTableAdapter = this.prestamosTableAdapter;
             this.tableAdapterManager3.UpdateOrder = BibliotecaJM.DS_PrestamosTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // librosPrestadosDataGridView
-            // 
-            this.librosPrestadosDataGridView.AutoGenerateColumns = false;
-            this.librosPrestadosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.librosPrestadosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.librosPrestadosDataGridView.DataSource = this.librosPrestadosBindingSource;
-            this.librosPrestadosDataGridView.Location = new System.Drawing.Point(6, 19);
-            this.librosPrestadosDataGridView.Name = "librosPrestadosDataGridView";
-            this.librosPrestadosDataGridView.Size = new System.Drawing.Size(1042, 404);
-            this.librosPrestadosDataGridView.TabIndex = 0;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "id_lib";
-            this.dataGridViewTextBoxColumn1.HeaderText = "id_lib";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "titulo_lib";
-            this.dataGridViewTextBoxColumn2.HeaderText = "titulo_lib";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "fecha_presta_pre";
-            this.dataGridViewTextBoxColumn3.HeaderText = "fecha_presta_pre";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "fecha_devol_pre";
-            this.dataGridViewTextBoxColumn4.HeaderText = "fecha_devol_pre";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
             // FM_Devoluciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -461,11 +479,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.lectoresBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Lectores)).EndInit();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dS_LibrosPrestados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.librosPrestadosDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.librosPrestadosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS_LibrosPrestados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Prestamos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prestamosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.librosPrestadosDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -507,5 +525,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewButtonColumn Column1;
     }
 }
