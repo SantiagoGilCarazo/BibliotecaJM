@@ -92,11 +92,16 @@ namespace BibliotecaJM
                     dS_Libros.libros[posicionLibros].prestado_sn_lib = "S";
                     librosBindingSource.EndEdit();
                     librosTableAdapter.Update(dS_Libros.libros);
-                    this.librosTableAdapter.Fill(this.dS_Libros.libros);
-                    //dS_Lectores.lectores[0].fecha_penalizacion_lec.Equals(null);
-                    lectoresTableAdapter.Update(dS_Lectores.lectores);
-                    
-                    librosPrestadosTableAdapter.FillById(this.dS_LibrosPrestados.LibrosPrestados, int.Parse(tbIDLector.Text));
+                    librosDataGridView.Update();
+
+
+                    //string fechaPenalizacion = dS_Lectores.lectores[0].fecha_penalizacion_lec.ToString();
+                    //fechaPenalizacion = "";                   
+                    //lectoresBindingSource.EndEdit();
+                    //lectoresTableAdapter.Update(dS_Lectores.lectores);
+                    //lectoresTableAdapter.FillById(dS_Lectores.lectores,int.Parse(tbIDLector.Text));
+
+                    librosPrestadosTableAdapter.FillById(dS_LibrosPrestados.LibrosPrestados, int.Parse(tbIDLector.Text));
                     
 
                 }
