@@ -12,6 +12,7 @@ namespace BibliotecaJM
 {
     public partial class FM_Login : Form
     {
+        int contador = 0;
         public FM_Login()
         {
             InitializeComponent();
@@ -21,13 +22,15 @@ namespace BibliotecaJM
 
         private void bAceptar_Click(object sender, EventArgs e)
         {
+            
+            
             string tipo = "";
             string nombre = nombre_usuTextBox.Text;
             string contraseña = password_usuTextBox.Text;
             int posicion = 0;
             if (!nombre.Equals("") && !contraseña.Equals(""))
             {
-
+                contador++;
                 if (usuariosTableAdapter.FillByUsuPass(dS_Usuarios.usuarios, nombre, contraseña) == 1)
                 {
                     this.Visible = false;
@@ -37,9 +40,16 @@ namespace BibliotecaJM
                     fm.ShowDialog();
                     this.Close();
                 }
-
+                
+                else if (contador == 3)
+                {
+                    MessageBox.Show("Ha superado el número máximo de ingresos de sesión.");
+                    this.Close();
+                }
                 else
                     MessageBox.Show("Usuario o contraseña incorrectos");
+
+                
             }
             else
                 MessageBox.Show("Rellene todos los campos");
