@@ -38,7 +38,7 @@ namespace BibliotecaJM
         {
             int idLector = int.Parse(tbLector.Text);
             this.lectoresTableAdapter.FillById(dS_Lectores.lectores, idLector);
-            this.prestamosTableAdapter.FillById(dS_Prestamos.prestamos, idLector);
+            this.librosPrestadosTableAdapter.FillById(dS_LibrosPrestados.LibrosPrestados,idLector);
         }
 
         private void FM_Devoluciones_Load(object sender, EventArgs e)

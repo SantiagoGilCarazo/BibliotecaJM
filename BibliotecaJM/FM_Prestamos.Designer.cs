@@ -171,7 +171,6 @@
             this.id_lecLabel1.Name = "id_lecLabel1";
             this.id_lecLabel1.Size = new System.Drawing.Size(200, 23);
             this.id_lecLabel1.TabIndex = 7;
-            this.id_lecLabel1.Text = "label3";
             // 
             // lectoresBindingSource
             // 
@@ -190,7 +189,6 @@
             this.nombre_lecLabel1.Name = "nombre_lecLabel1";
             this.nombre_lecLabel1.Size = new System.Drawing.Size(200, 23);
             this.nombre_lecLabel1.TabIndex = 9;
-            this.nombre_lecLabel1.Text = "label3";
             // 
             // domicilio_lecLabel1
             // 
@@ -199,7 +197,6 @@
             this.domicilio_lecLabel1.Name = "domicilio_lecLabel1";
             this.domicilio_lecLabel1.Size = new System.Drawing.Size(200, 23);
             this.domicilio_lecLabel1.TabIndex = 11;
-            this.domicilio_lecLabel1.Text = "label3";
             // 
             // fecha_penalizacion_lecLabel1
             // 
@@ -208,7 +205,6 @@
             this.fecha_penalizacion_lecLabel1.Name = "fecha_penalizacion_lecLabel1";
             this.fecha_penalizacion_lecLabel1.Size = new System.Drawing.Size(200, 23);
             this.fecha_penalizacion_lecLabel1.TabIndex = 19;
-            this.fecha_penalizacion_lecLabel1.Text = "label3";
             // 
             // bNombre
             // 
