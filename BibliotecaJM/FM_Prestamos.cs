@@ -19,7 +19,7 @@ namespace BibliotecaJM
 
         public FM_Prestamos(UsuarioActual usuarioActual)
         {
-            this.usuarioActual = usuarioActual;
+            this.usuarioActual = usuarioActual;           
             InitializeComponent();
         }
 
@@ -63,7 +63,7 @@ namespace BibliotecaJM
             DateTime fechaActual = DateTime.Today;
             //DateTime? fechaPenalizacion = dS_Lectores.lectores[0].fecha_penalizacion_lec;
             string fecha = fechaActual.ToShortDateString();
-            int dias = dS_Configuracion.configuracion[0].dias_prestamo_cnf;
+            //int dias = dS_Configuracion.configuracion[0].dias_prestamo_cnf;
             Prestado = dS_Libros.libros[posicionLibros].prestado_sn_lib;
             
 
@@ -72,22 +72,31 @@ namespace BibliotecaJM
                 if (dS_Lectores.lectores[0].Isfecha_penalizacion_lecNull() || dS_Lectores.lectores[0].fecha_penalizacion_lec < DateTime.Today)
                 {
                     DS_Configuracion.configuracionDataTable configuracion = new DS_Configuracion.configuracionDataTable();
+                    DS_ConfiguracionTableAdapters.configuracionTableAdapter configuracionTa = new DS_ConfiguracionTableAdapters.configuracionTableAdapter();
+                    configuracionTa.Fill(configuracion);
+                    
                     int diasPrestamo = configuracion[0].dias_prestamo_cnf;
                     DS_Prestamos.prestamosDataTable prestamos = new DS_Prestamos.prestamosDataTable();
                     DS_PrestamosTableAdapters.prestamosTableAdapter prestamosTa = new DS_PrestamosTableAdapters.prestamosTableAdapter();
                     DS_Prestamos.prestamosRow fila = prestamos.NewprestamosRow();
                     fila.id_lec_pre = dS_Lectores.lectores[0].id_lec;
                     fila.id_lib_pre = dS_Libros.libros[posicionLibros].id_lib;
-                    fila.fecha_presta_pre = DateTime.Today;
-                    fila.fecha_devol_pre = DateTime.Today.AddDays(dS_Configuracion.configuracion[0].dias_prestamo_cnf);
+                    fila.fecha_presta_pre = DateTime.Now;
+                    fila.fecha_devol_pre = DateTime.Now.AddDays(configuracion[0].dias_prestamo_cnf);
 
                     prestamos.AddprestamosRow(fila);
                     prestamosTa.Update(prestamos);
-                                        
-                    Prestado = "S";
+
+
+                    dS_Libros.libros[posicionLibros].prestado_sn_lib.Remove(0, dS_Libros.libros[posicionLibros].prestado_sn_lib.Length);
+                    dS_Libros.libros[posicionLibros].prestado_sn_lib = "S";
+                    librosBindingSource.EndEdit();
                     librosTableAdapter.Update(dS_Libros.libros);
-                    dS_Lectores.lectores[0].fecha_penalizacion_lec.Equals(null);
+                    this.librosTableAdapter.Fill(this.dS_Libros.libros);
+                    //dS_Lectores.lectores[0].fecha_penalizacion_lec.Equals(null);
                     lectoresTableAdapter.Update(dS_Lectores.lectores);
+                    
+                    librosPrestadosTableAdapter.FillById(this.dS_LibrosPrestados.LibrosPrestados, int.Parse(tbIDLector.Text));
                     
 
                 }
@@ -98,6 +107,11 @@ namespace BibliotecaJM
             {
                 MessageBox.Show("No se puede prestar el libro porque ya está prestado o la persona tiene 5 libros prestados.");
             }
+        }
+
+        private void FM_Prestamos_Load(object sender, EventArgs e)
+        {
+            this.librosTableAdapter.Fill(this.dS_Libros.libros);
         }
     }
 }
