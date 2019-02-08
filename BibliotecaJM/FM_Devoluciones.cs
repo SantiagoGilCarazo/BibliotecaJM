@@ -67,23 +67,14 @@ namespace BibliotecaJM
         {
 
             int posicion = librosPrestadosBindingSource.Position;
-            int id = dS_LibrosPrestados.LibrosPrestados[posicion].id_lib - 1;
+            int id = dS_LibrosPrestados.LibrosPrestados[posicion].id_lib;
 
 
             if (e.ColumnIndex == 4 && id_lecLabel1.Text != "")
             {
                 DS_Configuracion.configuracionDataTable configuracion = new DS_Configuracion.configuracionDataTable();
                 DS_ConfiguracionTableAdapters.configuracionTableAdapter configTa = new DS_ConfiguracionTableAdapters.configuracionTableAdapter();
-                configTa.Fill(configuracion);
-
-
-                DS_Libros.librosDataTable libros = new DS_Libros.librosDataTable();
-                DS_LibrosTableAdapters.librosTableAdapter librosTa = new DS_LibrosTableAdapters.librosTableAdapter();
-                librosTa.Fill(libros);
-                libros[id].prestado_sn_lib.Remove(0, libros[posicion].prestado_sn_lib.Length);
-                libros[id].prestado_sn_lib = "N";
-                librosBindingSource.EndEdit();
-                librosTableAdapter.Update(libros);
+                configTa.Fill(configuracion);          
 
                 DS_Historico_prestamos.historico_prestamosDataTable historicoPrestamos = new DS_Historico_prestamos.historico_prestamosDataTable();
                 DS_Historico_prestamosTableAdapters.historico_prestamosTableAdapter historicoTa = new DS_Historico_prestamosTableAdapters.historico_prestamosTableAdapter();
@@ -100,42 +91,59 @@ namespace BibliotecaJM
                 DS_PrestamosTableAdapters.prestamosTableAdapter prestamosTa = new DS_PrestamosTableAdapters.prestamosTableAdapter();
                 prestamosTa.Fill(prestamos);
 
-                prestamosTa.Delete(prestamos[id].id_lec_pre, prestamos[id].id_lib_pre, prestamos[id].fecha_devol_pre, prestamos[id].fecha_presta_pre);
-                prestamosTa.Update(prestamos);
-
 
                 if (DateTime.Now > dS_LibrosPrestados.LibrosPrestados[posicion].fecha_devol_pre)
                 {
                     int numeroLectores = dS_Lectores.lectores.Count;
                     for (int i = 0; i < numeroLectores; i++)
                     {
-                        if (i==dS_Lectores.lectores[i].id_lec)
+                        if ( dS_Lectores.lectores[i].id_lec == int.Parse(id_lecLabel1.Text))
                         {
                             DateTime fechaPenal = DateTime.Now.AddDays(DateTime.Now.DayOfYear - dS_LibrosPrestados.LibrosPrestados[posicion].fecha_devol_pre.DayOfYear);
-                            if (fechaPenal.DayOfYear>configuracion[0].dias_penalizacion_cnf)
+                            if (fechaPenal.DayOfYear > configuracion[0].dias_penalizacion_cnf)
                             {
                                 dS_Lectores.lectores[i].fecha_penalizacion_lec = DateTime.Now.AddDays(configuracion[0].dias_penalizacion_cnf);
                                 lectoresBindingSource.EndEdit();
                                 lectoresTableAdapter.Update(dS_Lectores.lectores);
 
-                            }else
+                            }
+                            else
+
                             dS_Lectores.lectores[i].fecha_penalizacion_lec = DateTime.Now.AddDays(fechaPenal.DayOfYear);
                             lectoresBindingSource.EndEdit();
                             lectoresTableAdapter.Update(dS_Lectores.lectores);
                         }
                     }
                 }
+                else
+                    fila.fecha_devol_his = DateTime.Now;
 
 
-                this.librosPrestadosTableAdapter.FillById(dS_LibrosPrestados.LibrosPrestados, int.Parse(tbLector.Text));
+                if (librosTableAdapter.FillById(dS_Libros.libros, dS_LibrosPrestados.LibrosPrestados[posicion].id_lib) == 1)
+                {
+                    dS_Libros.libros[0].prestado_sn_lib.Remove(0);
+                    dS_Libros.libros[0].prestado_sn_lib = "N";
+                    librosBindingSource.EndEdit();
+                    librosTableAdapter.Update(dS_Libros.libros);
+                }
 
-                MessageBox.Show("Libro devuelto correctamente.");
+                for (int i = 0; i < prestamos.Count; i++)
+                {
+                    if (prestamos[i].id_lib_pre == dS_Libros.libros[posicion].id_lib)
+                    {
+                        
+                        prestamos[i].Delete();
+                        prestamosTa.Update(prestamos);
+                        MessageBox.Show("El libro se ha devuelto correctamente");
+                    }
+                }
+                librosPrestadosTableAdapter.FillById(dS_LibrosPrestados.LibrosPrestados, int.Parse(id_lecLabel1.Text));
+
+                
 
             }else
                 MessageBox.Show("Busque un lector.");
                 id_lecLabel1.Focus();
-
-
 
         }
     }

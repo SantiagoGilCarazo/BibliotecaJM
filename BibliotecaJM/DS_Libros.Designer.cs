@@ -963,7 +963,8 @@ SELECT id_lib, titulo_lib, autor_lib, seccion_lib, prestado_sn_lib FROM libros W
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@libro", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "autor_lib", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT id_lib, titulo_lib, autor_lib FROM dbo.libros WHERE id_lib = @id";
+            this._commandCollection[2].CommandText = "SELECT        id_lib, titulo_lib, autor_lib, seccion_lib, prestado_sn_lib\r\nFROM  " +
+                "          libros\r\nWHERE        (id_lib = @id)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_lib", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
