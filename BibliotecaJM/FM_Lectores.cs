@@ -107,8 +107,9 @@ namespace BibliotecaJM
         {
             FM_Provincia pro = new FM_Provincia();
             pro.ShowDialog();
+            provincia_lecTextBox.Text = pro.idProvincia.ToString();
         }
 
-        
+
     }
 }

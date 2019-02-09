@@ -34,6 +34,7 @@
             this.provinciasTableAdapter = new BibliotecaJM.DS_ProvinciasTableAdapters.provinciasTableAdapter();
             this.tableAdapterManager = new BibliotecaJM.DS_ProvinciasTableAdapters.TableAdapterManager();
             this.provinciasDataGridView = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Provincias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.provinciasBindingSource)).BeginInit();
@@ -69,6 +70,7 @@
             this.provinciasDataGridView.AutoGenerateColumns = false;
             this.provinciasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.provinciasDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
             this.dataGridViewTextBoxColumn2});
             this.provinciasDataGridView.DataSource = this.provinciasBindingSource;
             this.provinciasDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -76,8 +78,17 @@
             this.provinciasDataGridView.Name = "provinciasDataGridView";
             this.provinciasDataGridView.ReadOnly = true;
             this.provinciasDataGridView.RowHeadersVisible = false;
+            this.provinciasDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.provinciasDataGridView.Size = new System.Drawing.Size(205, 203);
             this.provinciasDataGridView.TabIndex = 1;
+            this.provinciasDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.provinciasDataGridView_CellDoubleClick);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "id_pro";
+            this.Column1.HeaderText = "Id";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -109,6 +120,7 @@
         private DS_ProvinciasTableAdapters.provinciasTableAdapter provinciasTableAdapter;
         private DS_ProvinciasTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView provinciasDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     }
 }

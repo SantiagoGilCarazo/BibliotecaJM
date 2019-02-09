@@ -429,12 +429,12 @@
         private System.Windows.Forms.Label id_lecLabel1;
         private System.Windows.Forms.TextBox nombre_lecTextBox;
         private System.Windows.Forms.TextBox domicilio_lecTextBox;
-        private System.Windows.Forms.TextBox provincia_lecTextBox;
         private System.Windows.Forms.Label fecha_penalizacion_lecLabel1;
         private System.Windows.Forms.DataGridView lectoresDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.TextBox provincia_lecTextBox;
     }
 }

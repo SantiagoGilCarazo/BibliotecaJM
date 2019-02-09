@@ -12,17 +12,10 @@ namespace BibliotecaJM
 {
     public partial class FM_Provincia : Form
     {
+        public int idProvincia = 0;
         public FM_Provincia()
         {
             InitializeComponent();
-        }
-
-        private void provinciasBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.provinciasBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.dS_Provincias);
-
         }
 
         private void FM_Provincia_Load(object sender, EventArgs e)
@@ -30,6 +23,14 @@ namespace BibliotecaJM
             // TODO: esta línea de código carga datos en la tabla 'dS_Provincias.provincias' Puede moverla o quitarla según sea necesario.
             this.provinciasTableAdapter.Fill(this.dS_Provincias.provincias);
 
+        }
+
+        private void provinciasDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int posicion = provinciasBindingSource.Position;
+            idProvincia = dS_Provincias.provincias[posicion].id_pro;
+            
+            this.Close();
         }
     }
 }
