@@ -37,6 +37,9 @@
             System.Windows.Forms.Label id_libLabel1;
             System.Windows.Forms.Label prestado_sn_libLabel;
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.bEliminar = new System.Windows.Forms.Button();
+            this.bModificar = new System.Windows.Forms.Button();
+            this.bNuevo = new System.Windows.Forms.Button();
             this.tbAutor = new System.Windows.Forms.TextBox();
             this.tbNombre = new System.Windows.Forms.TextBox();
             this.tbId = new System.Windows.Forms.TextBox();
@@ -51,17 +54,14 @@
             this.bBuscarNombre = new System.Windows.Forms.Button();
             this.bBuscarId = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.librosTableAdapter = new BibliotecaJM.DS_LibrosTableAdapters.librosTableAdapter();
-            this.tableAdapterManager = new BibliotecaJM.DS_LibrosTableAdapters.TableAdapterManager();
-            this.bNuevo = new System.Windows.Forms.Button();
-            this.bModificar = new System.Windows.Forms.Button();
-            this.bEliminar = new System.Windows.Forms.Button();
+            this.bCancelar = new System.Windows.Forms.Button();
+            this.bAceptar = new System.Windows.Forms.Button();
+            this.prestado_sn_libLabel1 = new System.Windows.Forms.Label();
+            this.id_libLabel2 = new System.Windows.Forms.Label();
             this.titulo_libTextBox = new System.Windows.Forms.TextBox();
             this.autor_libTextBox = new System.Windows.Forms.TextBox();
-            this.id_libLabel2 = new System.Windows.Forms.Label();
-            this.prestado_sn_libLabel1 = new System.Windows.Forms.Label();
-            this.bAceptar = new System.Windows.Forms.Button();
-            this.bCancelar = new System.Windows.Forms.Button();
+            this.librosTableAdapter = new BibliotecaJM.DS_LibrosTableAdapters.librosTableAdapter();
+            this.tableAdapterManager = new BibliotecaJM.DS_LibrosTableAdapters.TableAdapterManager();
             id_libLabel = new System.Windows.Forms.Label();
             titulo_libLabel = new System.Windows.Forms.Label();
             autor_libLabel = new System.Windows.Forms.Label();
@@ -103,6 +103,42 @@
             autor_libLabel.TabIndex = 4;
             autor_libLabel.Text = "Autor:";
             // 
+            // titulo_libLabel1
+            // 
+            titulo_libLabel1.AutoSize = true;
+            titulo_libLabel1.Location = new System.Drawing.Point(97, 112);
+            titulo_libLabel1.Name = "titulo_libLabel1";
+            titulo_libLabel1.Size = new System.Drawing.Size(58, 13);
+            titulo_libLabel1.TabIndex = 2;
+            titulo_libLabel1.Text = "Titulo libro:";
+            // 
+            // autor_libLabel1
+            // 
+            autor_libLabel1.AutoSize = true;
+            autor_libLabel1.Location = new System.Drawing.Point(97, 138);
+            autor_libLabel1.Name = "autor_libLabel1";
+            autor_libLabel1.Size = new System.Drawing.Size(57, 13);
+            autor_libLabel1.TabIndex = 4;
+            autor_libLabel1.Text = "Autor libro:";
+            // 
+            // id_libLabel1
+            // 
+            id_libLabel1.AutoSize = true;
+            id_libLabel1.Location = new System.Drawing.Point(97, 74);
+            id_libLabel1.Name = "id_libLabel1";
+            id_libLabel1.Size = new System.Drawing.Size(16, 13);
+            id_libLabel1.TabIndex = 5;
+            id_libLabel1.Text = "Id";
+            // 
+            // prestado_sn_libLabel
+            // 
+            prestado_sn_libLabel.AutoSize = true;
+            prestado_sn_libLabel.Location = new System.Drawing.Point(97, 178);
+            prestado_sn_libLabel.Name = "prestado_sn_libLabel";
+            prestado_sn_libLabel.Size = new System.Drawing.Size(52, 13);
+            prestado_sn_libLabel.TabIndex = 6;
+            prestado_sn_libLabel.Text = "Prestado:";
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.bEliminar);
@@ -124,6 +160,36 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscar";
+            // 
+            // bEliminar
+            // 
+            this.bEliminar.Location = new System.Drawing.Point(366, 615);
+            this.bEliminar.Name = "bEliminar";
+            this.bEliminar.Size = new System.Drawing.Size(75, 23);
+            this.bEliminar.TabIndex = 11;
+            this.bEliminar.Text = "Eliminar";
+            this.bEliminar.UseVisualStyleBackColor = true;
+            this.bEliminar.Click += new System.EventHandler(this.bEliminar_Click);
+            // 
+            // bModificar
+            // 
+            this.bModificar.Location = new System.Drawing.Point(221, 615);
+            this.bModificar.Name = "bModificar";
+            this.bModificar.Size = new System.Drawing.Size(75, 23);
+            this.bModificar.TabIndex = 11;
+            this.bModificar.Text = "Modificar";
+            this.bModificar.UseVisualStyleBackColor = true;
+            this.bModificar.Click += new System.EventHandler(this.bModificar_Click);
+            // 
+            // bNuevo
+            // 
+            this.bNuevo.Location = new System.Drawing.Point(75, 615);
+            this.bNuevo.Name = "bNuevo";
+            this.bNuevo.Size = new System.Drawing.Size(75, 23);
+            this.bNuevo.TabIndex = 11;
+            this.bNuevo.Text = "Nuevo";
+            this.bNuevo.UseVisualStyleBackColor = true;
+            this.bNuevo.Click += new System.EventHandler(this.bNuevo_Click);
             // 
             // tbAutor
             // 
@@ -259,113 +325,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Libro";
             // 
-            // librosTableAdapter
+            // bCancelar
             // 
-            this.librosTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.librosTableAdapter = this.librosTableAdapter;
-            this.tableAdapterManager.UpdateOrder = BibliotecaJM.DS_LibrosTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // bNuevo
-            // 
-            this.bNuevo.Location = new System.Drawing.Point(75, 615);
-            this.bNuevo.Name = "bNuevo";
-            this.bNuevo.Size = new System.Drawing.Size(75, 23);
-            this.bNuevo.TabIndex = 11;
-            this.bNuevo.Text = "Nuevo";
-            this.bNuevo.UseVisualStyleBackColor = true;
-            this.bNuevo.Click += new System.EventHandler(this.bNuevo_Click);
-            // 
-            // bModificar
-            // 
-            this.bModificar.Location = new System.Drawing.Point(221, 615);
-            this.bModificar.Name = "bModificar";
-            this.bModificar.Size = new System.Drawing.Size(75, 23);
-            this.bModificar.TabIndex = 11;
-            this.bModificar.Text = "Modificar";
-            this.bModificar.UseVisualStyleBackColor = true;
-            this.bModificar.Click += new System.EventHandler(this.bModificar_Click);
-            // 
-            // bEliminar
-            // 
-            this.bEliminar.Location = new System.Drawing.Point(366, 615);
-            this.bEliminar.Name = "bEliminar";
-            this.bEliminar.Size = new System.Drawing.Size(75, 23);
-            this.bEliminar.TabIndex = 11;
-            this.bEliminar.Text = "Eliminar";
-            this.bEliminar.UseVisualStyleBackColor = true;
-            this.bEliminar.Click += new System.EventHandler(this.bEliminar_Click);
-            // 
-            // titulo_libLabel1
-            // 
-            titulo_libLabel1.AutoSize = true;
-            titulo_libLabel1.Location = new System.Drawing.Point(97, 112);
-            titulo_libLabel1.Name = "titulo_libLabel1";
-            titulo_libLabel1.Size = new System.Drawing.Size(58, 13);
-            titulo_libLabel1.TabIndex = 2;
-            titulo_libLabel1.Text = "Titulo libro:";
-            // 
-            // titulo_libTextBox
-            // 
-            this.titulo_libTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.librosBindingSource, "titulo_lib", true));
-            this.titulo_libTextBox.Location = new System.Drawing.Point(181, 109);
-            this.titulo_libTextBox.Name = "titulo_libTextBox";
-            this.titulo_libTextBox.Size = new System.Drawing.Size(246, 20);
-            this.titulo_libTextBox.TabIndex = 3;
-            // 
-            // autor_libLabel1
-            // 
-            autor_libLabel1.AutoSize = true;
-            autor_libLabel1.Location = new System.Drawing.Point(97, 138);
-            autor_libLabel1.Name = "autor_libLabel1";
-            autor_libLabel1.Size = new System.Drawing.Size(57, 13);
-            autor_libLabel1.TabIndex = 4;
-            autor_libLabel1.Text = "Autor libro:";
-            // 
-            // autor_libTextBox
-            // 
-            this.autor_libTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.librosBindingSource, "autor_lib", true));
-            this.autor_libTextBox.Location = new System.Drawing.Point(181, 135);
-            this.autor_libTextBox.Name = "autor_libTextBox";
-            this.autor_libTextBox.Size = new System.Drawing.Size(246, 20);
-            this.autor_libTextBox.TabIndex = 5;
-            // 
-            // id_libLabel1
-            // 
-            id_libLabel1.AutoSize = true;
-            id_libLabel1.Location = new System.Drawing.Point(97, 74);
-            id_libLabel1.Name = "id_libLabel1";
-            id_libLabel1.Size = new System.Drawing.Size(16, 13);
-            id_libLabel1.TabIndex = 5;
-            id_libLabel1.Text = "Id";
-            // 
-            // id_libLabel2
-            // 
-            this.id_libLabel2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.librosBindingSource, "id_lib", true));
-            this.id_libLabel2.Location = new System.Drawing.Point(178, 74);
-            this.id_libLabel2.Name = "id_libLabel2";
-            this.id_libLabel2.Size = new System.Drawing.Size(100, 23);
-            this.id_libLabel2.TabIndex = 6;
-            // 
-            // prestado_sn_libLabel
-            // 
-            prestado_sn_libLabel.AutoSize = true;
-            prestado_sn_libLabel.Location = new System.Drawing.Point(97, 178);
-            prestado_sn_libLabel.Name = "prestado_sn_libLabel";
-            prestado_sn_libLabel.Size = new System.Drawing.Size(52, 13);
-            prestado_sn_libLabel.TabIndex = 6;
-            prestado_sn_libLabel.Text = "Prestado:";
-            // 
-            // prestado_sn_libLabel1
-            // 
-            this.prestado_sn_libLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.librosBindingSource, "prestado_sn_lib", true));
-            this.prestado_sn_libLabel1.Location = new System.Drawing.Point(181, 178);
-            this.prestado_sn_libLabel1.Name = "prestado_sn_libLabel1";
-            this.prestado_sn_libLabel1.Size = new System.Drawing.Size(100, 23);
-            this.prestado_sn_libLabel1.TabIndex = 7;
+            this.bCancelar.Location = new System.Drawing.Point(301, 615);
+            this.bCancelar.Name = "bCancelar";
+            this.bCancelar.Size = new System.Drawing.Size(75, 23);
+            this.bCancelar.TabIndex = 8;
+            this.bCancelar.Text = "Cancelar";
+            this.bCancelar.UseVisualStyleBackColor = true;
+            this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
             // 
             // bAceptar
             // 
@@ -377,15 +345,47 @@
             this.bAceptar.UseVisualStyleBackColor = true;
             this.bAceptar.Click += new System.EventHandler(this.bAceptar_Click);
             // 
-            // bCancelar
+            // prestado_sn_libLabel1
             // 
-            this.bCancelar.Location = new System.Drawing.Point(301, 615);
-            this.bCancelar.Name = "bCancelar";
-            this.bCancelar.Size = new System.Drawing.Size(75, 23);
-            this.bCancelar.TabIndex = 8;
-            this.bCancelar.Text = "Cancelar";
-            this.bCancelar.UseVisualStyleBackColor = true;
-            this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
+            this.prestado_sn_libLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.librosBindingSource, "prestado_sn_lib", true));
+            this.prestado_sn_libLabel1.Location = new System.Drawing.Point(181, 178);
+            this.prestado_sn_libLabel1.Name = "prestado_sn_libLabel1";
+            this.prestado_sn_libLabel1.Size = new System.Drawing.Size(100, 23);
+            this.prestado_sn_libLabel1.TabIndex = 7;
+            // 
+            // id_libLabel2
+            // 
+            this.id_libLabel2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.librosBindingSource, "id_lib", true));
+            this.id_libLabel2.Location = new System.Drawing.Point(178, 74);
+            this.id_libLabel2.Name = "id_libLabel2";
+            this.id_libLabel2.Size = new System.Drawing.Size(100, 23);
+            this.id_libLabel2.TabIndex = 6;
+            // 
+            // titulo_libTextBox
+            // 
+            this.titulo_libTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.librosBindingSource, "titulo_lib", true));
+            this.titulo_libTextBox.Location = new System.Drawing.Point(181, 109);
+            this.titulo_libTextBox.Name = "titulo_libTextBox";
+            this.titulo_libTextBox.Size = new System.Drawing.Size(246, 20);
+            this.titulo_libTextBox.TabIndex = 3;
+            // 
+            // autor_libTextBox
+            // 
+            this.autor_libTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.librosBindingSource, "autor_lib", true));
+            this.autor_libTextBox.Location = new System.Drawing.Point(181, 135);
+            this.autor_libTextBox.Name = "autor_libTextBox";
+            this.autor_libTextBox.Size = new System.Drawing.Size(246, 20);
+            this.autor_libTextBox.TabIndex = 5;
+            // 
+            // librosTableAdapter
+            // 
+            this.librosTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.librosTableAdapter = this.librosTableAdapter;
+            this.tableAdapterManager.UpdateOrder = BibliotecaJM.DS_LibrosTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // FM_Libros
             // 

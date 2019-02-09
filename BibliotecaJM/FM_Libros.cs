@@ -117,7 +117,10 @@ namespace BibliotecaJM
 
         private void FM_Libros_Load(object sender, EventArgs e)
         {
+            librosTableAdapter.Fill(dS_Libros.libros);
             busqueda();
         }
+
+        
     }
 }
