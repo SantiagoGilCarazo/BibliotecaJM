@@ -209,7 +209,7 @@
             this.bCancelar.Location = new System.Drawing.Point(329, 385);
             this.bCancelar.Name = "bCancelar";
             this.bCancelar.Size = new System.Drawing.Size(75, 23);
-            this.bCancelar.TabIndex = 3;
+            this.bCancelar.TabIndex = 4;
             this.bCancelar.Text = "Cancelar";
             this.bCancelar.UseVisualStyleBackColor = true;
             this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
@@ -318,7 +318,7 @@
             this.bEliminar.Location = new System.Drawing.Point(368, 578);
             this.bEliminar.Name = "bEliminar";
             this.bEliminar.Size = new System.Drawing.Size(75, 23);
-            this.bEliminar.TabIndex = 3;
+            this.bEliminar.TabIndex = 5;
             this.bEliminar.Text = "Eliminar";
             this.bEliminar.UseVisualStyleBackColor = true;
             this.bEliminar.Click += new System.EventHandler(this.bEliminar_Click);
@@ -328,7 +328,7 @@
             this.bModificar.Location = new System.Drawing.Point(204, 578);
             this.bModificar.Name = "bModificar";
             this.bModificar.Size = new System.Drawing.Size(75, 23);
-            this.bModificar.TabIndex = 3;
+            this.bModificar.TabIndex = 4;
             this.bModificar.Text = "Modificar";
             this.bModificar.UseVisualStyleBackColor = true;
             this.bModificar.Click += new System.EventHandler(this.bModificar_Click);
@@ -375,7 +375,7 @@
             this.tbID.Location = new System.Drawing.Point(74, 35);
             this.tbID.Name = "tbID";
             this.tbID.Size = new System.Drawing.Size(264, 20);
-            this.tbID.TabIndex = 2;
+            this.tbID.TabIndex = 0;
             // 
             // lectoresTableAdapter
             // 

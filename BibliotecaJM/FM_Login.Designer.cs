@@ -78,7 +78,7 @@
             this.bAceptar.Location = new System.Drawing.Point(50, 109);
             this.bAceptar.Name = "bAceptar";
             this.bAceptar.Size = new System.Drawing.Size(75, 23);
-            this.bAceptar.TabIndex = 4;
+            this.bAceptar.TabIndex = 2;
             this.bAceptar.Text = "Aceptar";
             this.bAceptar.UseVisualStyleBackColor = true;
             this.bAceptar.Click += new System.EventHandler(this.bAceptar_Click);
@@ -109,7 +109,7 @@
             this.nombre_usuTextBox.Location = new System.Drawing.Point(135, 28);
             this.nombre_usuTextBox.Name = "nombre_usuTextBox";
             this.nombre_usuTextBox.Size = new System.Drawing.Size(114, 20);
-            this.nombre_usuTextBox.TabIndex = 6;
+            this.nombre_usuTextBox.TabIndex = 0;
             // 
             // password_usuTextBox
             // 
@@ -118,12 +118,13 @@
             this.password_usuTextBox.Name = "password_usuTextBox";
             this.password_usuTextBox.PasswordChar = '*';
             this.password_usuTextBox.Size = new System.Drawing.Size(114, 20);
-            this.password_usuTextBox.TabIndex = 7;
+            this.password_usuTextBox.TabIndex = 1;
             // 
             // FM_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(290, 155);
             this.Controls.Add(password_usuLabel);
             this.Controls.Add(this.password_usuTextBox);

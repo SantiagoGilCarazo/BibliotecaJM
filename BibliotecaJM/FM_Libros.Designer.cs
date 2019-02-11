@@ -210,7 +210,7 @@
             this.tbId.Location = new System.Drawing.Point(132, 45);
             this.tbId.Name = "tbId";
             this.tbId.Size = new System.Drawing.Size(256, 20);
-            this.tbId.TabIndex = 10;
+            this.tbId.TabIndex = 0;
             // 
             // librosDataGridView
             // 

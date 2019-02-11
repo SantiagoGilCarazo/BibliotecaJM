@@ -238,7 +238,7 @@
             this.tbIDLector.Location = new System.Drawing.Point(108, 32);
             this.tbIDLector.Name = "tbIDLector";
             this.tbIDLector.Size = new System.Drawing.Size(213, 20);
-            this.tbIDLector.TabIndex = 1;
+            this.tbIDLector.TabIndex = 0;
             // 
             // label2
             // 
@@ -274,7 +274,7 @@
             this.groupBox2.Location = new System.Drawing.Point(520, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(478, 676);
-            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Buscar Libro";
             // 
@@ -383,14 +383,14 @@
             this.tbAutor.Location = new System.Drawing.Point(104, 118);
             this.tbAutor.Name = "tbAutor";
             this.tbAutor.Size = new System.Drawing.Size(213, 20);
-            this.tbAutor.TabIndex = 5;
+            this.tbAutor.TabIndex = 2;
             // 
             // tbTitulo
             // 
             this.tbTitulo.Location = new System.Drawing.Point(104, 73);
             this.tbTitulo.Name = "tbTitulo";
             this.tbTitulo.Size = new System.Drawing.Size(213, 20);
-            this.tbTitulo.TabIndex = 5;
+            this.tbTitulo.TabIndex = 1;
             // 
             // label5
             // 
@@ -406,7 +406,7 @@
             this.tbIdentificador.Location = new System.Drawing.Point(104, 35);
             this.tbIdentificador.Name = "tbIdentificador";
             this.tbIdentificador.Size = new System.Drawing.Size(213, 20);
-            this.tbIdentificador.TabIndex = 6;
+            this.tbIdentificador.TabIndex = 0;
             // 
             // label3
             // 

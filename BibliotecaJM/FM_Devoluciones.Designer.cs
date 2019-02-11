@@ -61,6 +61,11 @@
             this.tableAdapterManager1 = new BibliotecaJM.DS_LectoresTableAdapters.TableAdapterManager();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.librosPrestadosDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.librosPrestadosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dS_LibrosPrestados = new BibliotecaJM.DS_LibrosPrestados();
             this.librosPrestadosTableAdapter = new BibliotecaJM.DS_LibrosPrestadosTableAdapters.LibrosPrestadosTableAdapter();
@@ -69,11 +74,6 @@
             this.prestamosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.prestamosTableAdapter = new BibliotecaJM.DS_PrestamosTableAdapters.prestamosTableAdapter();
             this.tableAdapterManager3 = new BibliotecaJM.DS_PrestamosTableAdapters.TableAdapterManager();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             id_libLabel = new System.Windows.Forms.Label();
             id_libLabel1 = new System.Windows.Forms.Label();
             titulo_libLabel = new System.Windows.Forms.Label();
@@ -103,7 +103,7 @@
             id_libLabel.Location = new System.Drawing.Point(44, 35);
             id_libLabel.Name = "id_libLabel";
             id_libLabel.Size = new System.Drawing.Size(58, 13);
-            id_libLabel.TabIndex = 0;
+            id_libLabel.TabIndex = 1;
             id_libLabel.Text = "Id del libro:";
             // 
             // id_libLabel1
@@ -246,7 +246,7 @@
             this.tbLibro.Location = new System.Drawing.Point(128, 32);
             this.tbLibro.Name = "tbLibro";
             this.tbLibro.Size = new System.Drawing.Size(232, 20);
-            this.tbLibro.TabIndex = 1;
+            this.tbLibro.TabIndex = 0;
             // 
             // groupBox2
             // 
@@ -264,7 +264,7 @@
             this.groupBox2.Location = new System.Drawing.Point(517, 24);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(549, 207);
-            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Búsqueda del lector";
             // 
@@ -284,7 +284,7 @@
             this.tbLector.Location = new System.Drawing.Point(89, 33);
             this.tbLector.Name = "tbLector";
             this.tbLector.Size = new System.Drawing.Size(291, 20);
-            this.tbLector.TabIndex = 14;
+            this.tbLector.TabIndex = 1;
             // 
             // lectoresBindingSource
             // 
@@ -354,7 +354,7 @@
             this.groupBox3.Location = new System.Drawing.Point(12, 259);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(1054, 429);
-            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Libros prestados";
             // 
@@ -381,46 +381,6 @@
             this.librosPrestadosDataGridView.Size = new System.Drawing.Size(1042, 404);
             this.librosPrestadosDataGridView.TabIndex = 0;
             this.librosPrestadosDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.librosPrestadosDataGridView_CellContentClick);
-            // 
-            // librosPrestadosBindingSource
-            // 
-            this.librosPrestadosBindingSource.DataMember = "LibrosPrestados";
-            this.librosPrestadosBindingSource.DataSource = this.dS_LibrosPrestados;
-            // 
-            // dS_LibrosPrestados
-            // 
-            this.dS_LibrosPrestados.DataSetName = "DS_LibrosPrestados";
-            this.dS_LibrosPrestados.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // librosPrestadosTableAdapter
-            // 
-            this.librosPrestadosTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager2
-            // 
-            this.tableAdapterManager2.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager2.Connection = null;
-            this.tableAdapterManager2.UpdateOrder = BibliotecaJM.DS_LibrosPrestadosTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // dS_Prestamos
-            // 
-            this.dS_Prestamos.DataSetName = "DS_Prestamos";
-            this.dS_Prestamos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // prestamosBindingSource
-            // 
-            this.prestamosBindingSource.DataMember = "prestamos";
-            this.prestamosBindingSource.DataSource = this.dS_Prestamos;
-            // 
-            // prestamosTableAdapter
-            // 
-            this.prestamosTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager3
-            // 
-            this.tableAdapterManager3.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager3.prestamosTableAdapter = this.prestamosTableAdapter;
-            this.tableAdapterManager3.UpdateOrder = BibliotecaJM.DS_PrestamosTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -462,6 +422,46 @@
             this.Column1.Text = "Realizar devolución";
             this.Column1.UseColumnTextForButtonValue = true;
             this.Column1.Width = 220;
+            // 
+            // librosPrestadosBindingSource
+            // 
+            this.librosPrestadosBindingSource.DataMember = "LibrosPrestados";
+            this.librosPrestadosBindingSource.DataSource = this.dS_LibrosPrestados;
+            // 
+            // dS_LibrosPrestados
+            // 
+            this.dS_LibrosPrestados.DataSetName = "DS_LibrosPrestados";
+            this.dS_LibrosPrestados.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // librosPrestadosTableAdapter
+            // 
+            this.librosPrestadosTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager2
+            // 
+            this.tableAdapterManager2.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager2.Connection = null;
+            this.tableAdapterManager2.UpdateOrder = BibliotecaJM.DS_LibrosPrestadosTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // dS_Prestamos
+            // 
+            this.dS_Prestamos.DataSetName = "DS_Prestamos";
+            this.dS_Prestamos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // prestamosBindingSource
+            // 
+            this.prestamosBindingSource.DataMember = "prestamos";
+            this.prestamosBindingSource.DataSource = this.dS_Prestamos;
+            // 
+            // prestamosTableAdapter
+            // 
+            this.prestamosTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager3
+            // 
+            this.tableAdapterManager3.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager3.prestamosTableAdapter = this.prestamosTableAdapter;
+            this.tableAdapterManager3.UpdateOrder = BibliotecaJM.DS_PrestamosTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // FM_Devoluciones
             // 
