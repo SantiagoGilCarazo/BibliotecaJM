@@ -126,9 +126,7 @@ namespace BibliotecaJM
                         librosTableAdapter.Update(dS_Libros.libros);
                         librosDataGridView.Update();
 
-
-                        //string fechaPenalizacion = dS_Lectores.lectores[0].fecha_penalizacion_lec.ToString();
-                        //fechaPenalizacion = "";                   
+                        //dS_Lectores.lectores[0].Setfecha_penalizacion_lecNull();                                        
                         //lectoresBindingSource.EndEdit();
                         //lectoresTableAdapter.Update(dS_Lectores.lectores);
                         //lectoresTableAdapter.FillById(dS_Lectores.lectores,int.Parse(tbIDLector.Text));
